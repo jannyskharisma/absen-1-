@@ -1,0 +1,12 @@
+# Abaikan folder virtual environment
+venv/
+
+# Abaikan file cache Python
+__pycache__/
+*.pyc
+
+# Abaikan file sistem
+.DS_Store
+
+# Abaikan Excel backup
+~$*.xlsx

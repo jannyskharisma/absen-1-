@@ -26,17 +26,27 @@ Sistem ini adalah aplikasi absensi sederhana menggunakan Python:
 ✅ Menyimpan bukti absen ke file lokal  
 ✅ Bisa melihat rekap absen kapan saja
 
+## 
+- Validasi agar tidak bisa absen 2x
+- Auto-save ke Excel
+- Auto-reset harian pukul 00:00
+- Bisa lihat rekap pribadi
+
 ---
 
 ## 📂 Struktur Folder
 
 ```
-absensi_io_multiplexing/
-├── server_gui_absen.py
-├── client_gui_absen.py
-├── daftar_absen.txt
-├── absen_anda.txt
-├── absensi_export.xlsx
+├── src/
+│ ├── main_login.py
+│ ├── client_gui_absen.py
+│ └── server_gui_absen.py
+├── data/
+│  ├──absensi.xlsx
+|  └── daftar_absen.txt
+├── .gitignore
+├── config.txt
+├── requirements.txt
 └── README.pdf
 ```
 
@@ -44,17 +54,26 @@ absensi_io_multiplexing/
 
 ## 🚀 Cara Menjalankan
 
-1. Jalankan server dulu:
+1. Buka terminal
+
+2. Aktifkan virtual environment (opsional):
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+
+3. install dependensi:
 ```bash
-python server_gui_absen.py
+pip install openpyxl pillow
 ```
 
-2. Jalankan client siswa:
+4. Jalankan program:
 ```bash
-python client_gui_absen.py
+python3 src/main_login.py
 ```
 
-3. Server akan mencatat kehadiran dan tampilkan daftar secara real-time.
+5. Login.
+Guru (Admin) → Masukkan password: admin123
+Murid (Client) → Input nama lalu klik Kirim Absen
 
 ---
 
@@ -70,6 +89,32 @@ Install openpyxl:
 ```bash
 pip install openpyxl
 ```
+
+- pip install -r requirements.txt        # buat jalanin aja
+- pip install -r dev-requirements.txt    # kalau mau build/bundling/develop
+
+---
+
+## 🔧 MAINTENANCE:
+- Kalau file `absensi.xlsx` error → buat ulang file kosong dengan header: `Nama`, `Tanggal`, `Waktu`
+- Kalau muncul error "File tidak ditemukan" → pastikan struktur folder `data/` dan `src/` benar
+- Untuk fitur baru: cukup tambahkan fungsinya dan update juga di `README.md`
+
+- Tapi... Kalau Masih Error "ModuleNotFoundError: No module named 'openpyxl'"(linux)
+
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 src/main_login.py
+
+---
+
+## ✅ STATUS AKHIR:
+Semua sudah:
+- 🔁 **Lintas platform siap (Windows/Linux/macOS)**
+- 📁 Struktur folder sudah universal
+- 📋 README dan `.gitignore` sudah aman
 
 ---
 

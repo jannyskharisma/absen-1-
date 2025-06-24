@@ -23,14 +23,14 @@ def login_murid():
 # Fungsi jalankan server
 def jalankan_server():
     try:
-        subprocess.Popen(["python", "src/server_gui_absen.py"])
+        subprocess.Popen(["python3", os.path.join("src", "server_gui_absen.py")])
     except Exception as e:
         messagebox.showerror("Error", f"Gagal membuka server: {e}")
 
 # Fungsi jalankan client
 def jalankan_client():
     try:
-        subprocess.Popen(["python", "src/client_gui_absen.py"])
+        subprocess.Popen(["python3", os.path.join("src/client_gui_absen.py")])
     except Exception as e:
         messagebox.showerror("Error", f"Gagal membuka client: {e}")
 
